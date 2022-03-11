@@ -1,38 +1,164 @@
+@import url('https://fonts.googleapis.com/css2?family=Cabin:wght@400;700&display=swap');
+
+
 .App {
-  text-align: center;
+  font-family: 'Cabin';
+  font-weight: 700;
+  font-size: 10px;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+
+
+nav {
+  display: flex;
+  justify-content: flex-start;
+  padding: 20px 50px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.container {
+
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+text-align: center;
+height: 75vh;
+
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+
+/* Font Styles */
+
+
+h1 {
+  font-size: 5em;
+}
+
+h3 {
+  font-weight: 400;
+  font-size: 2em;
+}
+
+a {
+  font-size: 1.4em;
+  font-weight: 700;
+}
+
+
+/* Button Styles */
+
+.black-btn {
+  background-color: #29282C;
+  padding: 10px 30px;
+  color: white;
+  margin: 20px 10px;
+  border-radius: 9px;
+  text-decoration: none;
+  border: solid 2px #29282C;
+}
+
+.black-btn:hover {
+  background-color: transparent;
+  color: #29282C;
+
+}
+
+.purple-btn {
+  background-color: #5B4FBC;
+  padding: 10px 30px;
+  color: white;
+  margin: 20px 10px;
+  border-radius: 9px;
+  text-decoration: none;
+  border: 2px solid #5B4FBC;
+
+}
+
+.purple-btn:hover {
+  background-color: transparent;
+  color: #5B4FBC; 
+
+}
+
+button {
+  background-color: #29282C;
+  padding: 10px 30px;
+  color: white;
+  margin: 20px 0px;
+  border-radius: 9px;
+  text-decoration: none;
+  border: solid 2px #29282C;
+  font-size: 1.4em;
+  font-weight: 700;
+}
+
+button:hover {
+  background-color: transparent;
+  color: #29282C;
+
+}
+
+
+
+/* HomePage Styles */
+
+.container h1 {
+  margin-bottom: 0px;
+}
+
+.btn-box {
+  margin-top: 40px;
+}
+
+/* Auth Form Styles */
+
+.auth-form {
   display: flex;
   flex-direction: column;
-  align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  align-items: flex-start;
 }
 
-.App-link {
-  color: #61dafb;
+form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  margin: 20px 0px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+input {
+
+  border: none;
+  border-bottom: solid 2px #29282C;
+  margin-bottom: 20px;
+  width: 20em;
+  color: #29282C;
+  padding: 10px;
+
+
+}
+
+/* User Homepage Styles */
+
+aside {
+  margin: 50px;
+  width: 15vw;
+  border-right: 2px solid lightgrey;
+  height: 70vh;
+  z-index: 1;
+  position: absolute;
+}
+
+.aside-dropdown {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+.dropdown-option {
+  text-decoration: none;
+  color: #29282C;
+  margin: 5px 0px;
 }
