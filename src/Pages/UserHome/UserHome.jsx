@@ -11,14 +11,16 @@ function UserHome() {
         const [loggedInUser, setLoggedInUser] = useState(null);
         const [clientProjects, setClientProjects] = useState([])
         const [projectCards, setProjectCards] = useState([])
+  
 
         const fetchCards = async (projectId) => {
             try {
               const storedToken = localStorage.getItem('authToken');
+              console.log(projectId)
   
               let response = await axios.get(`${process.env.REACT_APP_API_URL}/project/${projectId}/cards`, {headers: { Authorization: `Bearer ${storedToken}` }});
               setProjectCards(response.data.cards);
-              console.log(response.data)
+              console.log(response.data.cards)
             } catch (error) {
               console.log(error);
             }
@@ -30,7 +32,6 @@ function UserHome() {
   
               let response = await axios.get(`${process.env.REACT_APP_API_URL}/client/${clientId}/projects`, {headers: { Authorization: `Bearer ${storedToken}` }});
               setClientProjects(response.data.projects);
-              console.log(response.data)
             } catch (error) {
               console.log(error);
             }
@@ -42,14 +43,13 @@ function UserHome() {
 
             let response = await axios.get(`${process.env.REACT_APP_API_URL}/user/clients`, {headers: { Authorization: `Bearer ${storedToken}` }});
             setLoggedInUser(response.data);
-            console.log(response.data)
           } catch (error) {
             console.log(error);
           }
         };
       
         useEffect(() => {
-          fetchUser();
+          fetchUser()
         }, []);
 
   return (
@@ -64,6 +64,7 @@ function UserHome() {
                             <a key={client._id} className="dropdown-option" onClick={() => fetchProjects(client._id)}>{client.username}</a>
                         )
                     })}
+
                 </div>
                 <h3>Projects</h3>
                 <div className="aside-dropdown">

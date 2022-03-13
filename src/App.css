@@ -12,7 +12,11 @@
 nav {
   display: flex;
   justify-content: flex-start;
-  padding: 20px 50px;
+  padding: 30px 50px;
+}
+
+nav img {
+  width: 150px;
 }
 
 .container {
@@ -35,7 +39,7 @@ h1 {
 }
 
 h3 {
-  font-weight: 400;
+  font-weight: 700;
   font-size: 2em;
 }
 
@@ -139,6 +143,26 @@ input {
 
 }
 
+.radio-box {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  margin: 10px 0px;
+}
+
+input[type="radio" i] {
+
+  width: 2em;
+  margin: auto 0px;
+  border: solid 2px #29282C;
+
+}
+
+.radio-box label {
+  font-size: 1.4em;
+  margin-right: 20px;
+}
+
 /* User Homepage Styles */
 
 aside {
@@ -151,14 +175,49 @@ aside {
 }
 
 .aside-dropdown {
+  font-size: 1.2em;
+  font-weight: 400;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
   align-items: flex-start;
+  height: 100px;
+  width: 180px;
+  overflow-y: scroll;
 }
+
+.aside-dropdown a {
+  margin-bottom: 10px;
+  font-weight: 400;
+}
+
+/* .dropdown-option a:focus {
+  background-color:rosybrown;
+} */
+
+.aside-dropdown::-webkit-scrollbar {
+  width: 15px;
+  border-radius: 9px;
+  background-color: #F7F7F7;
+}
+
+
+.aside-dropdown::-webkit-scrollbar-thumb {
+  border-radius: 5px;
+  background-color: #29282C;
+  width: 8px;
+  
+}
+​
 
 .dropdown-option {
   text-decoration: none;
   color: #29282C;
-  margin: 5px 0px;
+  margin-bottom: 10px;
+}
+
+.active {
+
+  background-color: pink;
+  
 }

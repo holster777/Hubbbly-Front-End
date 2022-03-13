@@ -28,7 +28,7 @@ function Login() {
       .then((response) => {
         storeToken(response.data.authToken);
         authenticateUser();
-        navigate('/');
+        navigate('/clients');
       })
       .catch((err) => console.log(err));
 
@@ -43,7 +43,7 @@ function Login() {
         <form onSubmit={handleSubmit}>
             <input type="text" name="username" placeholder="username" value={username} onChange={handleUsername} />
             <input type="password" name="password" placeholder="password" value={password} onChange={handlePassword} />
-            <div>
+            <div className="radio-box">
               <input type="radio" id="designer" name="userMode" value="designer" onChange={handleUserMode}/>
               <label htmlFor="designer">Designer</label>
               <input type="radio" id="client" name="userMode" value="client" onChange={handleUserMode} />
