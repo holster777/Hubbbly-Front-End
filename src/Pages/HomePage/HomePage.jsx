@@ -1,10 +1,12 @@
 import React from 'react'
 import {Link} from 'react-router-dom'
+import NavBar from '../../Components/NavBar/NavBar'
 
 function HomePage() {
   return (
     <div>
-      <main className="container">
+      <NavBar />
+      <main className="container-centered">
         <div>
           <h1>Welcome to Hubbbly</h1>
           <h3> The hub for your creative studio </h3>

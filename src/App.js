@@ -12,8 +12,6 @@ import UserHome from './Pages/UserHome/UserHome';
 function App() {
   return (
     <div className="App">
-      <NavBar />
-
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/signup" element={<Signup />} />
@@ -21,6 +19,7 @@ function App() {
         <Route path="/clients" element={<UserHome />} />
         <Route path="/projects" element={<UserHome />} />
         <Route path="/cards" element={<UserHome />} />
+        <Route path="/card-info" element= {<UserHome />} />
       </Routes>
     
     </div>

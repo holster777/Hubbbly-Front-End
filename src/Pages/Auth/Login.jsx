@@ -2,6 +2,7 @@ import React, { useState, useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import {AuthContext} from '../../Context/auth.context'
+import NavBar from '../../Components/NavBar/NavBar';
 
 function Login() {
   const [username, setUsername] = useState('');
@@ -37,21 +38,24 @@ function Login() {
       setUserMode('')
   };
   return (
-    <div className="container">
-        <div className="auth-form">
-        <h1>Login</h1>
-        <form onSubmit={handleSubmit}>
-            <input type="text" name="username" placeholder="username" value={username} onChange={handleUsername} />
-            <input type="password" name="password" placeholder="password" value={password} onChange={handlePassword} />
-            <div className="radio-box">
-              <input type="radio" id="designer" name="userMode" value="designer" onChange={handleUserMode}/>
-              <label htmlFor="designer">Designer</label>
-              <input type="radio" id="client" name="userMode" value="client" onChange={handleUserMode} />
-              <label htmlFor="client">Client</label>
-            </div>
-            <button type="submit"> Login </button>
-        </form>
-        </div>
+    <div>
+      <NavBar />
+      <div className="auth-container">
+          <div className="auth-form">
+          <h1>Login</h1>
+          <form onSubmit={handleSubmit}>
+              <input type="text" name="username" placeholder="username" value={username} onChange={handleUsername} />
+              <input type="password" name="password" placeholder="password" value={password} onChange={handlePassword} />
+              <div className="radio-box">
+                <input type="radio" id="designer" name="userMode" value="designer" onChange={handleUserMode}/>
+                <label htmlFor="designer">Designer</label>
+                <input type="radio" id="client" name="userMode" value="client" onChange={handleUserMode} />
+                <label htmlFor="client">Client</label>
+              </div>
+              <button type="submit"> Login </button>
+          </form>
+          </div>
+      </div>
     </div>
   );
 }

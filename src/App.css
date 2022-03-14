@@ -19,17 +19,6 @@ nav img {
   width: 150px;
 }
 
-.container {
-
-display: flex;
-flex-direction: column;
-justify-content: center;
-align-items: center;
-text-align: center;
-height: 75vh;
-
-}
-
 
 /* Font Styles */
 
@@ -62,6 +51,23 @@ a {
 }
 
 .black-btn:hover {
+  background-color: transparent;
+  color: #29282C;
+
+}
+
+.black-btn-sm {
+  background-color: #29282C;
+  padding: 10px 12px;
+  color: white;
+  margin: 10px 10px 10px 0px;
+  border-radius: 9px;
+  text-decoration: none;
+  border: solid 2px #29282C;
+  font-size: 1.2em;
+}
+
+.black-btn-sm:hover {
   background-color: transparent;
   color: #29282C;
 
@@ -103,24 +109,22 @@ button:hover {
 }
 
 
-
-/* HomePage Styles */
-
-.container h1 {
-  margin-bottom: 0px;
-}
-
-.btn-box {
-  margin-top: 40px;
-}
-
-/* Auth Form Styles */
+/* Auth Form / HomePage Styles */
 
 .auth-form {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: flex-start;
+}
+
+
+.auth-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 75vh;
 }
 
 form {
@@ -163,15 +167,40 @@ input[type="radio" i] {
   margin-right: 20px;
 }
 
+.btn-box {
+  margin-top: 40px;
+}
+
+.container-centered {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 75vh;
+  text-align: center;
+}
+
+.container-centered h1 {
+  margin-bottom: 0px;
+}
+
 /* User Homepage Styles */
 
 aside {
-  margin: 50px;
-  width: 15vw;
-  border-right: 2px solid lightgrey;
-  height: 70vh;
-  z-index: 1;
-  position: absolute;
+  width: 17rem;
+  border-right: 1px solid #d8cccc;
+  height: 100vh;
+  z-index: 100;
+  position: fixed;
+  bottom:0;
+  left:0;
+  background-color: white;
+}
+
+aside h3 {
+  border-bottom: solid 1px #d8cccc;
+  width: 180px;
+  padding-bottom: 5px;
 }
 
 .aside-dropdown {
@@ -184,6 +213,7 @@ aside {
   height: 100px;
   width: 180px;
   overflow-y: scroll;
+  margin-bottom: 2rem;
 }
 
 .aside-dropdown a {
@@ -191,9 +221,28 @@ aside {
   font-weight: 400;
 }
 
-/* .dropdown-option a:focus {
-  background-color:rosybrown;
-} */
+aside img {
+
+width: 150px;
+margin-top: 3rem;
+margin-left: 3rem;
+margin-bottom: 3rem;
+
+}
+
+.list {
+  margin-left: 3rem;
+}
+
+.main-container {
+
+  margin: 8rem 25rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  
+}
 
 .aside-dropdown::-webkit-scrollbar {
   width: 15px;
@@ -220,4 +269,69 @@ aside {
 
   background-color: pink;
   
+}
+
+.btn-box-left {
+  display:flex;
+  justify-content: flex-start;
+}
+
+/* .user-info {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.user-info img {
+  width: 30px;
+  margin-right: 10px;
+}
+
+.user-info h3 {
+  font-size: 1.2em;
+} */
+
+/* Card Styling */
+
+.card {
+
+height: 17rem;
+min-width: 10rem;
+box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+border-radius: 10px;
+display: flex;
+flex-direction: column;
+justify-content: flex-end;
+align-items: center;
+padding: 1rem;
+text-align: center;
+margin: 1rem 2.5rem 1rem 0.25rem;
+background-color: #F7F7F7;
+
+}
+
+.card a {
+  font-size: 1.3rem;
+}
+
+.row {
+  display: flex;
+  flex-direction: row;
+  width: 64vw;
+  overflow-x: scroll;
+  height: 50vh;
+}
+
+
+.row::-webkit-scrollbar {
+  width: 15px;
+  border-radius: 9px;
+  background-color: #F7F7F7;
+}
+
+
+.row::-webkit-scrollbar-thumb {
+  border-radius: 5px;
+  background-color: #29282C;
+  width: 8px;
 }

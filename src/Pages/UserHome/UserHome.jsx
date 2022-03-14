@@ -1,16 +1,40 @@
 import React from 'react'
 import { useState, useContext, useEffect} from 'react'
-import {AuthContext} from '../../Context/auth.context'
 import axios from 'axios';
-
+import logo from '../../images/Hubbly-Logo.png'
+import userIcon from '../../images/User-Icon.png'
+import {Link, useNavigate} from 'react-router-dom'
+import CardLayout from '../../Components/CardLayout/CardLayout';
 
 
 
 function UserHome() {
 
         const [loggedInUser, setLoggedInUser] = useState(null);
-        const [clientProjects, setClientProjects] = useState([])
-        const [projectCards, setProjectCards] = useState([])
+        const [clientProjects, setClientProjects] = useState([]);
+        const [projectCards, setProjectCards] = useState([]);
+        const [cardInfo, setCardInfo] = useState([]);
+        const [cardClicked, setCardClicked] = useState(false)
+
+        const navigate = useNavigate();
+
+        const fetchCardInfo = async (cardId) => {
+
+          try {
+        
+            const storedToken = localStorage.getItem('authToken');
+            console.log(cardId)
+
+            let response = await axios.get(`${process.env.REACT_APP_API_URL}/card/${cardId}`, {headers: { Authorization: `Bearer ${storedToken}` }});
+            setCardInfo(response.data);
+            setCardClicked(true)
+            console.log(cardInfo)
+
+          } catch (error) {
+            console.log(error);
+          }
+
+        }
   
 
         const fetchCards = async (projectId) => {
@@ -20,7 +44,7 @@ function UserHome() {
   
               let response = await axios.get(`${process.env.REACT_APP_API_URL}/project/${projectId}/cards`, {headers: { Authorization: `Bearer ${storedToken}` }});
               setProjectCards(response.data.cards);
-              console.log(response.data.cards)
+              // console.log(response.data.cards)
             } catch (error) {
               console.log(error);
             }
@@ -55,7 +79,8 @@ function UserHome() {
   return (
     <div>
         <aside>
-            <div>
+        <Link  to="/"><img className="logo" src={logo}/></Link>
+            <div className="list">
                 <h3>Clients</h3>
                 <div className="aside-dropdown">
 
@@ -66,6 +91,13 @@ function UserHome() {
                     })}
 
                 </div>
+                <div className="btn-box-left">
+                {/* {project && <Link to={`/projects/edit/${project._id}`}>Edit Project</Link>} */}
+
+                  <a className="black-btn-sm" onClick="/new-client"> New Client </a>
+                  <a className="black-btn-sm" onClick="/edit-client"> Edit Client </a>
+                </div>
+
                 <h3>Projects</h3>
                 <div className="aside-dropdown">
 
@@ -77,15 +109,35 @@ function UserHome() {
                 })}
                 </div>
             </div>
+            {/* <div className="user-info">
+              <img src={userIcon}/>
+              <h3>{loggedInUser.username}</h3>
+            </div> */}
         </aside>
-        <div className="container">
+        <div className="main-container">
+          
             <h3>Documents</h3>
+            <div className="row">
             {projectCards.map((card) => {
                     return (
-                        <a key={card._id} className="card">{card.name}</a>
+                        <div className="card" key={card._id} onClick={() => fetchCardInfo(card._id)}>
+                         <a>{card.name}</a>
+                        </div>
                     )
             })}
+            </div>
+            <div>
 
+              {cardClicked, <p>{cardInfo.images}</p>}
+
+              {/* {cardClicked && cardInfo.images.map((img) => {
+
+                <p>{img}</p>
+
+              })} */}
+            </div>
+
+             
         </div>
 
     </div>
