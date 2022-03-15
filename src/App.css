@@ -108,6 +108,27 @@ button:hover {
 
 }
 
+.btn-box-left {
+  display:flex;
+  justify-content: flex-start;
+}
+
+.black-btn-left {
+  background-color: #29282C;
+  padding: 10px 30px;
+  color: white;
+  margin: 20px 10px 20px 0px;
+  border-radius: 9px;
+  text-decoration: none;
+  border: solid 2px #29282C;
+
+}
+
+.black-btn-left:hover {
+  background-color: transparent;
+  color: #29282C;
+}
+
 
 /* Auth Form / HomePage Styles */
 
@@ -127,6 +148,10 @@ button:hover {
   height: 75vh;
 }
 
+.auth-container h1 {
+  margin-bottom: 0px;
+}
+
 form {
   display: flex;
   flex-direction: column;
@@ -139,7 +164,7 @@ input {
 
   border: none;
   border-bottom: solid 2px #29282C;
-  margin-bottom: 20px;
+  margin-bottom: 25px;
   width: 20em;
   color: #29282C;
   padding: 10px;
@@ -263,18 +288,18 @@ margin-bottom: 3rem;
   text-decoration: none;
   color: #29282C;
   margin-bottom: 10px;
+  width: 100%;
 }
 
-.active {
-
-  background-color: pink;
-  
+.dropdown-option-active {
+  background-color:#cfc9fdd8;
+  text-decoration: none;
+  color: #29282C;
+  margin-bottom: 10px;
+  width: 100%;
 }
 
-.btn-box-left {
-  display:flex;
-  justify-content: flex-start;
-}
+
 
 /* .user-info {
   display: flex;

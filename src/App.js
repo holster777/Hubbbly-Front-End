@@ -1,7 +1,6 @@
 
 import './App.css';
 import { Routes, Route } from 'react-router-dom';
-import NavBar from './Components/NavBar/NavBar.jsx'
 import HomePage from './Pages/HomePage/HomePage';
 import Signup from './Pages/Auth/Signup';
 import Login from './Pages/Auth/Login';
@@ -19,7 +18,7 @@ function App() {
         <Route path="/clients" element={<UserHome />} />
         <Route path="/projects" element={<UserHome />} />
         <Route path="/cards" element={<UserHome />} />
-        <Route path="/card-info" element= {<UserHome />} />
+        <Route path="/card-info" element= {<UserHome />} />  
       </Routes>
     
     </div>
