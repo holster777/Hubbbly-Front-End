@@ -14,9 +14,10 @@ function ProjectList(props) {
 
             {clientProjects.map((project) => {
                 return (
-      
-                  <a key={project._id} className="dropdown-option" onClick={() => projectCards(project._id)}>{project.name}</a>
-                  
+                  <>
+                  {(activeProject === project._id) && <a key={project._id} className="dropdown-option-active" onClick={() => projectCards(project._id)}>{project.name}</a>}
+                  {(activeProject != project._id) && <a key={project._id} className="dropdown-option" onClick={() => projectCards(project._id)}>{project.name}</a>}
+                  </>
 
             )})}
             </div>
@@ -24,7 +25,7 @@ function ProjectList(props) {
                   <a className="black-btn-sm" onClick={() => viewToggle('newProject')} loggedInUser={loggedInUser} activeClient={activeClient}> New Project </a>
 
                   {activeProject && 
-                    <a className="black-btn-sm" onClick={() => viewToggle('editProject')} loggedInUser={loggedInUser} activeProject={activeProject}> Edit Project </a>
+                    <a className="purple-btn-sm" onClick={() => viewToggle('editProject')} loggedInUser={loggedInUser} activeProject={activeProject}> Edit Project </a>
                   }
                   
                 </div>

@@ -363,6 +363,10 @@ background-color: #F7F7F7;
 
 }
 
+.card:hover {
+  background-color: white;
+}
+
 .card a {
   font-size: 1.3rem;
 }
@@ -387,4 +391,61 @@ background-color: #F7F7F7;
   border-radius: 5px;
   background-color: #29282C;
   width: 8px;
+}
+
+.card-btn {
+
+  height: 19rem;
+  min-width: 12rem;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem ;
+  text-align: center;
+  margin: 1rem 2.5rem 1rem 0.25rem;
+  background-color: #e0dcffd8;
+  border: none;
+  color: black;
+  font-size: 2.5rem;
+  
+  }
+
+/* Color Palette Layout Styles */
+
+.color-flex {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+.name-row {
+  display: flex;
+  margin: 10px;
+}
+
+.hex-row {
+  display: flex;
+  margin: 10px;
+}
+
+.box-row {
+  display: flex;
+  margin: 10px;
+}
+
+.note-row {
+  display: flex;
+  margin: 10px;
+}
+
+.color-name {
+  margin: 0 60px 0 10px;
+}
+
+.hex {
+  margin: 0 10px;
 }

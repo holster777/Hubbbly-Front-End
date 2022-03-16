@@ -57,10 +57,6 @@ const [password, setPassword] = useState('');
 
   const deleteClient = () => {
 
-    console.log('clienttoedit', props.clientToEdit)
-
-    console.log('clienttodelete', clientToDelete)
-
     axios
       .delete(`${process.env.REACT_APP_API_URL}/user/${clientToDelete}`, {headers: { Authorization: `Bearer ${storedToken}` }})
       .then(() => {

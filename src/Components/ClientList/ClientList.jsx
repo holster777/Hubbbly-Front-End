@@ -16,6 +16,7 @@ function ClientList(props) {
 
       editClient(clientId)
       setActiveClient(clientId)
+      viewToggle('home')
 
       try {
         const storedToken = localStorage.getItem('authToken');
@@ -49,7 +50,7 @@ function ClientList(props) {
                   }
                   
                 </div>
-                <ProjectList clientProjects={clientProjects} projectCards={projectCards} activeProject={activeProject} activeClient={activeClient}/>
+                <ProjectList clientProjects={clientProjects} projectCards={projectCards} activeProject={activeProject} activeClient={activeClient} viewToggle={viewToggle}/>
         </div>
 
   )

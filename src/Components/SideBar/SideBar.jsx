@@ -6,13 +6,13 @@ import axios from 'axios';
 
 function SideBar(props) {
 
-  const {loggedInUser, clientProjects, projectCards, viewToggle, editClient} = props;
+  const {loggedInUser, clientProjects, projectCards, viewToggle, editClient, activeProject} = props;
     
 
   return (
     <div>
 
-        <ClientList clientProjects={clientProjects} projectCards={projectCards} loggedInUser={loggedInUser} viewToggle={viewToggle} editClient={editClient} />
+        <ClientList clientProjects={clientProjects} projectCards={projectCards} loggedInUser={loggedInUser} viewToggle={viewToggle} editClient={editClient} activeProject={activeProject} />
 
     </div>
   )

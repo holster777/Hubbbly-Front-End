@@ -4,7 +4,7 @@ import NavBar from '../NavBar/NavBar';
 
 function CreateProject(props) {
 
-    const {viewToggle, fetchProjects} = props
+    const {viewToggle, client} = props
    
   const [name, setName] = useState('');
 
@@ -14,7 +14,7 @@ function CreateProject(props) {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    const body = { name };
+    const body = { clientId: client, name };
 
     const storedToken = localStorage.getItem('authToken');
 
@@ -23,8 +23,7 @@ function CreateProject(props) {
       .then((response) => {
 
       setName('');
-      fetchProjects()
-      viewToggle('cardList')
+      viewToggle('home')
     
       })
       .catch((err) => console.log(err));
