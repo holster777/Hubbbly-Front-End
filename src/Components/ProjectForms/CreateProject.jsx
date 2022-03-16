@@ -3,6 +3,8 @@ import axios from 'axios';
 import NavBar from '../NavBar/NavBar';
 
 function CreateProject(props) {
+
+    const {viewToggle, fetchProjects} = props
    
   const [name, setName] = useState('');
 
@@ -21,8 +23,8 @@ function CreateProject(props) {
       .then((response) => {
 
       setName('');
-      props.fetchProjects()
-      props.viewToggle('cardList')
+      fetchProjects()
+      viewToggle('cardList')
     
       })
       .catch((err) => console.log(err));

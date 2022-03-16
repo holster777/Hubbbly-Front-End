@@ -8,6 +8,7 @@ import SideBar from '../../Components/SideBar/SideBar';
 import CardList from '../../Components/CardList/CardList';
 import CreateClients from '../../Components/ClientForms/CreateClients'
 import EditClient from '../../Components/ClientForms/EditClient'
+import CreateProject from '../../Components/ProjectForms/CreateProject'
 
 
 function UserHome() {
@@ -18,9 +19,14 @@ function UserHome() {
   const [showEditClientForm, setShowEditClientForm] = useState(false)
   const [showCardList, setShowCardList] = useState(false)
   const [clientToEdit, setClientToEdit] = useState('')
+  const [activeProject, setActiveProject] = useState('')
+  const [showNewProjectForm, setShowNewProjectForm] = useState(false)
 
 
     const fetchCards = async (projectId) => {
+
+      setActiveProject(projectId)
+
         try {
           const storedToken = localStorage.getItem('authToken');
           console.log(projectId)
@@ -80,6 +86,16 @@ function UserHome() {
 
     }
 
+    if (formType === 'newProject') {
+
+      setShowEditClientForm(false)
+      setShowCardList(false)
+      setShowNewClientForm(false)
+      setShowNewProjectForm(true)
+
+
+    }
+
   }
 
   const fetchClientEdit = (clientId) => {
@@ -98,6 +114,7 @@ function UserHome() {
         {showCardList && projectCards && <CardList projectCards={projectCards} />}
         {showNewClientForm && <CreateClients viewToggle={viewToggle} fetchUser={fetchUser}/>}
         {showEditClientForm && <EditClient clientToEdit={clientToEdit} viewToggle={viewToggle} fetchUser={fetchUser} />}
+        {showNewProjectForm && <CreateProject clientToEdit={clientToEdit} viewToggle={viewToggle} fetchUser={fetchUser} />}
 
     </div>
   )

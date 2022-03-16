@@ -45,11 +45,11 @@ function ClientList(props) {
                   <a className="black-btn-sm" onClick={() => viewToggle('new-client')} loggedInUser={loggedInUser}> New Client </a>
 
                   {activeClient && 
-                    <a className="black-btn-sm" onClick={() => viewToggle('edit')} loggedInUser={loggedInUser}> Edit Client </a>
+                    <a className="purple-btn-sm" onClick={() => viewToggle('edit')} loggedInUser={loggedInUser}> Edit Client </a>
                   }
                   
                 </div>
-                <ProjectList clientProjects={clientProjects} projectCards={projectCards} activeProject={activeProject}/>
+                <ProjectList clientProjects={clientProjects} projectCards={projectCards} activeProject={activeProject} activeClient={activeClient}/>
         </div>
 
   )

@@ -4,18 +4,21 @@ function CardLayout(props) {
 
   const {cardInfo} = props;
 
-  console.log(cardInfo.images)
+  console.log('cardInfo', cardInfo)
 
       if (cardInfo.cardType === 'moodboard') {
       return (
         <div className="moodboard">
 
-        <h1>moodboard</h1>
-        {cardInfo.images.forEach((image) => {
+        <h1>{cardInfo.name}</h1>
+        <h4>{cardInfo.description}</h4>
+        {cardInfo && cardInfo.images.map((image) => {
 
-        <img src={this} alt="" style="width:100px; height: 100px;" />
+        return <div style={{width: 100, height: 100}} alt=""><img src={{image}}/></div>
 
         })}
+
+        <img src="https://imgur.com/l7m0Rp4"/>
             
 
       </div>
@@ -26,17 +29,25 @@ function CardLayout(props) {
         return (
 
           <div>
-            <h1>ColorPalette</h1>
-            {cardInfo.colors.forEach((color) => {
+            <h1>{cardInfo.name}</h1>
+            <h4>{cardInfo.description}</h4>
+            <div>
+              {cardInfo.colors.map((color) => {
 
-             <p>{this}</p>
+              return <div style={{width:100, height:100, backgroundColor:`${color}`}}></div>
 
-            
+              })}
+              {cardInfo.colorName.map((colorName) => {
 
+                return <h3>{colorName}</h3>
+
+              })}
+              {cardInfo.colorNotes.map((colorNote) => {
+
+                return <p>{colorNote}</p>
 
             })}
-
-
+            </div>
           </div>
         )
 
