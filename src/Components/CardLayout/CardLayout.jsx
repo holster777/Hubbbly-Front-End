@@ -13,8 +13,7 @@ function CardLayout(props) {
         <h1>moodboard</h1>
         {cardInfo.images.forEach((image) => {
 
-
-        <div> </div> 
+        <img src={this} alt="" style="width:100px; height: 100px;" />
 
         })}
             

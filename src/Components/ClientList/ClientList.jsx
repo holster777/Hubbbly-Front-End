@@ -7,7 +7,7 @@ import {useState} from 'react'
 
 function ClientList(props) {
 
-    const {loggedInUser, projectCards, viewToggle, editClient} = props;
+    const {loggedInUser, projectCards, viewToggle, editClient, activeProject} = props;
     const [clientProjects, setClientProjects] = useState([]);
     const [activeClient, setActiveClient] = useState(null);
     
@@ -19,7 +19,6 @@ function ClientList(props) {
 
       try {
         const storedToken = localStorage.getItem('authToken');
-  
         let response = await axios.get(`${process.env.REACT_APP_API_URL}/client/${clientId}/projects`, {headers: { Authorization: `Bearer ${storedToken}` }});
         setClientProjects(response.data.projects);
       } catch (error) {
@@ -50,7 +49,7 @@ function ClientList(props) {
                   }
                   
                 </div>
-                <ProjectList clientProjects={clientProjects} projectCards={projectCards}/>
+                <ProjectList clientProjects={clientProjects} projectCards={projectCards} activeProject={activeProject}/>
         </div>
 
   )

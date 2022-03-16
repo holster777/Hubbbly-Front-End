@@ -1,9 +1,10 @@
 import React, { useState, useContext, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import NavBar from '../NavBar/NavBar';
 
 function EditClient(props) {
+
+  const [clientToDelete, setClientToDelete] = useState(props.clientToEdit)
 
   console.log(props)
    
@@ -11,8 +12,6 @@ const [username, setUsername] = useState('');
 const [email, setEmail] = useState('');
 const [password, setPassword] = useState('');
 
-
-  const navigate = useNavigate();
 
   const handlePassword = (e) => setPassword(e.target.value);
   const handleUsername = (e) => setUsername(e.target.value);
@@ -56,6 +55,23 @@ const [password, setPassword] = useState('');
  
   };
 
+  const deleteClient = () => {
+
+    console.log('clienttoedit', props.clientToEdit)
+
+    console.log('clienttodelete', clientToDelete)
+
+    axios
+      .delete(`${process.env.REACT_APP_API_URL}/user/${clientToDelete}`, {headers: { Authorization: `Bearer ${storedToken}` }})
+      .then(() => {
+        props.viewToggle('cardList')
+        props.fetchUser()
+
+      })
+      .catch((err) => console.log(err));
+    
+    }
+
 
 
   return (
@@ -70,10 +86,9 @@ const [password, setPassword] = useState('');
               <input type="email" name="email" placeholder="email" value={email} onChange={handleEmail} />
               <div className="btn-box-left">
                 <button className="black-btn-left" type="submit"> Update Client </button>
-                <button className="purple-btn"> Delete Client </button>
+                <button onClick={deleteClient}> Delete Client</button>
               </div>
           </form>
-
           </div>
 
       </div>

@@ -97,7 +97,7 @@ function UserHome() {
 
         {showCardList && projectCards && <CardList projectCards={projectCards} />}
         {showNewClientForm && <CreateClients viewToggle={viewToggle} fetchUser={fetchUser}/>}
-        {showEditClientForm && <EditClient clientToEdit={clientToEdit} viewToggle={viewToggle} />}
+        {showEditClientForm && <EditClient clientToEdit={clientToEdit} viewToggle={viewToggle} fetchUser={fetchUser} />}
 
     </div>
   )
