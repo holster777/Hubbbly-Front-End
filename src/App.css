@@ -25,6 +25,7 @@ nav img {
 
 h1 {
   font-size: 5em;
+  margin-bottom: 10px;
 }
 
 h3 {
@@ -157,6 +158,33 @@ button:hover {
   color: #29282C;
 }
 
+.back-btn {
+  background-color: transparent;
+  border:none;
+  color:black;
+  border-radius: 0px;
+  margin-left: 0px;
+  padding-left: 0px;
+  padding-bottom: 0px;
+  margin-bottom: 0px;
+}
+
+.purple-btn-sm-logout {
+  background-color: #5B4FBC;;
+  padding: 10px 70px;
+  color: white;
+  margin: 40px 10px 10px 45px;
+  border-radius: 9px;
+  text-decoration: none;
+  border: solid 2px #5B4FBC;;
+  font-size: 1.2em;
+}
+
+.purple-btn-sm-logout:hover {
+  background-color: transparent;
+  color: #5B4FBC;
+
+}
 
 /* Auth Form / HomePage Styles */
 
@@ -413,6 +441,14 @@ background-color: #F7F7F7;
   
   }
 
+/* Moodboard Layout Styles */
+
+.img-row {
+  display: flex;
+  flex-wrap: wrap;
+  width: 600px;
+}
+
 /* Color Palette Layout Styles */
 
 .color-flex {
@@ -420,6 +456,13 @@ background-color: #F7F7F7;
   flex-direction: column;
   justify-content: flex-start;
   align-items: flex-start;
+  margin-left: 10px;
+}
+
+.flex-row {
+  display: flex;
+  margin-left:-20px;
+  
 }
 
 .name-row {
@@ -437,15 +480,113 @@ background-color: #F7F7F7;
   margin: 10px;
 }
 
-.note-row {
+.note {
   display: flex;
-  margin: 10px;
+  margin: 0 10px;
 }
 
 .color-name {
-  margin: 0 60px 0 10px;
+  margin: 0 10px;
 }
 
 .hex {
-  margin: 0 10px;
+  margin: 10px;
+}
+
+.mock-ups {
+  width: 65vw;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+/*  Create Card Form */
+
+.form-row {
+
+display: flex;
+flex-direction: row;
+width: 50vw;
+
+}
+
+.card-form-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.card-form-intro {
+display: flex;
+flex-direction: column;
+margin-bottom: 20px;
+padding-bottom: 20px;
+border-bottom: solid 1px #d8cccc;;
+
+}
+
+.card-details {
+  display: flex;
+
+}
+
+.card-details input {
+  margin-right: 40px;
+  margin-left: 0px;
+}
+
+.flex-row-card {
+  display: flex;
+  align-items: center;
+  margin: 20px 0;
+}
+
+.flex-row-card label {
+  font-size: 1.4em;
+  margin-right: 20px;
+}
+
+.flex-row-card input {
+  margin-right: 5px;
+}
+
+.form-color-row {
+display: flex;
+
+}
+
+.form-col {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  margin-right: 30px;
+}
+
+.photo-container {
+  height: 90vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  margin-left: 15vw ;
+}
+
+.photo-grid {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 700px;
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 10px;
+}
+
+.photo-grid img {
+  margin: 5px;
+}
+
+.photo-grid button {
+  margin-top: 30px;
 }

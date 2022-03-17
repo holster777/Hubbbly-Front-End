@@ -6,16 +6,10 @@ import CardLayout from '../CardLayout/CardLayout';
 
 function CardList(props) {
 
-    const {projectCards, viewToggle, showCardLayout} = props
-
-    const [cardDetails, setCardDetails] = useState(showCardLayout)
+    const {projectCards, viewToggle, fetchCards} = props
 
     const [cardInfo, setCardInfo] = useState(null);
 
-    useEffect(() => {
-      setCardDetails(showCardLayout)
-  
-    }, [props]);
 
   return (
     <div className="main-container">
@@ -43,7 +37,7 @@ function CardList(props) {
             
             )}
 
-            {cardInfo && <CardLayout cardInfo={cardInfo} viewToggle={viewToggle}/>}
+            {cardInfo && <CardLayout setCardInfo={setCardInfo} cardInfo={cardInfo} viewToggle={viewToggle} projectCards={projectCards} fetchCards={fetchCards}/>}
 
     </div>
 

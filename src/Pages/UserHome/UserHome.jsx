@@ -11,6 +11,7 @@ import EditClient from '../../Components/ClientForms/EditClient'
 import CreateProject from '../../Components/ProjectForms/CreateProject'
 import EditProject from '../../Components/ProjectForms/EditProject'
 import CreateCard from '../../Components/CardForms/CreateCard'
+import Home from '../../Components/Home/Home'
 
 
 function UserHome() {
@@ -26,6 +27,7 @@ function UserHome() {
   const [showCardLayout, setShowCardLayout] = useState(false)
   const [showEditProjectForm, setShowEditProjectForm] = useState(false)
   const [showNewCardForm, setShowNewCardForm] = useState(false)
+  const [showHome, setShowHome] = useState(false)
 
 
     const fetchCards = async (projectId) => {
@@ -52,7 +54,7 @@ function UserHome() {
         try {
           setActiveProject('')
           const storedToken = localStorage.getItem('authToken');
-
+          setShowHome(true)
           let response = await axios.get(`${process.env.REACT_APP_API_URL}/user/clients`, {headers: { Authorization: `Bearer ${storedToken}` }});
           setLoggedInUser(response.data);
         } catch (error) {
@@ -76,6 +78,8 @@ function UserHome() {
       setShowCardList(false)
       setShowNewClientForm(false)
       setShowNewProjectForm(false)
+      setShowNewCardForm(false)
+      setShowHome(false)
 
     }
 
@@ -85,6 +89,10 @@ function UserHome() {
       setShowCardList(false)
       setShowNewClientForm(true)
       setShowNewProjectForm(false)
+      setShowCardLayout(false)
+      setShowEditProjectForm(false)
+      setShowNewCardForm(false)
+      setShowHome(false)
 
     }
 
@@ -95,7 +103,9 @@ function UserHome() {
       setShowNewClientForm(false)
       setShowNewProjectForm(false)
       setShowCardLayout(false)
-
+      setShowEditProjectForm(false)
+      setShowNewCardForm(false)
+      setShowHome(false)
 
     }
 
@@ -106,8 +116,8 @@ function UserHome() {
       setShowNewClientForm(false)
       setShowNewProjectForm(true)
       setShowEditProjectForm(false)
-
-
+      setShowNewCardForm(false)
+      setShowHome(false)
 
     }
 
@@ -116,6 +126,9 @@ function UserHome() {
       setShowCardList(false)
       setShowNewClientForm(false)
       setShowNewProjectForm(false)
+      setShowEditProjectForm(false)
+      setShowNewCardForm(false)
+      setShowHome(true)
 
     }
 
@@ -126,7 +139,9 @@ function UserHome() {
       setShowNewClientForm(false)
       setShowNewProjectForm(false)
       setShowCardLayout(true)
-
+      setShowEditProjectForm(false)
+      setShowNewCardForm(false)
+      setShowHome(false)
 
     }
 
@@ -138,6 +153,8 @@ function UserHome() {
       setShowNewProjectForm(false)
       setShowCardLayout(false)
       setShowEditProjectForm(true)
+      setShowNewCardForm(false)
+      setShowHome(false)
 
     }
 
@@ -150,11 +167,9 @@ function UserHome() {
       setShowCardLayout(false)
       setShowEditProjectForm(false)
       setShowNewCardForm(true)
+      setShowHome(false)
 
     }
-
-
-
 
   }
 
@@ -171,12 +186,13 @@ function UserHome() {
         <SideBar loggedInUser={loggedInUser} projectCards={fetchCards} viewToggle={viewToggle} editClient={fetchClientEdit} activeProject={activeProject}/>
         </aside>
 
-        {showCardList && projectCards && <CardList projectCards={projectCards} viewToggle={viewToggle} showCardLayout={showCardLayout}/>}
+        {showCardList && projectCards && <CardList projectCards={projectCards} fetchCards={fetchCards} viewToggle={viewToggle} showCardLayout={showCardLayout}/>}
         {showNewClientForm && <CreateClients viewToggle={viewToggle} fetchUser={fetchUser}/>}
         {showEditClientForm && <EditClient clientToEdit={clientToEdit} viewToggle={viewToggle} fetchUser={fetchUser} />}
         {showNewProjectForm && <CreateProject clientToEdit={clientToEdit} viewToggle={viewToggle} fetchUser={fetchUser} client={clientToEdit} />}
         {showEditProjectForm && <EditProject projectToEdit={activeProject} viewToggle={viewToggle} fetchUser={fetchUser} client={clientToEdit} />}
         {showNewCardForm && <CreateCard projectToEdit={activeProject} viewToggle={viewToggle} fetchUser={fetchUser} client={clientToEdit} />}
+        {showHome && <Home />}
     </div>
   )
 }

@@ -48,7 +48,7 @@ const [password, setPassword] = useState('');
       setUsername('');
       setPassword('')
       setEmail('')
-      props.viewToggle('cardList')
+      props.viewToggle('home')
     
       })
       .catch((err) => console.log(err));
@@ -60,7 +60,7 @@ const [password, setPassword] = useState('');
     axios
       .delete(`${process.env.REACT_APP_API_URL}/user/${clientToDelete}`, {headers: { Authorization: `Bearer ${storedToken}` }})
       .then(() => {
-        props.viewToggle('cardList')
+        props.viewToggle('home')
         props.fetchUser()
 
       })
